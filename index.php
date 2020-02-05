@@ -1,5 +1,27 @@
 <?php 
 require_once "config/conexion.php";
+//Login
+if(!empty($_POST))
+{
+	$user = mysqli_real_escape_string($conexion, $_POST['user']);
+	$pass = mysqli_real_escape_string($conexion, $_POST['pass']);
+	$password_encriptada = sha1($pass);
+
+	$sql = "SELECT idusuario FROM usuarios WHERE usuario = '$user' AND password = '$pass'";
+	$resultado = $conexion->query($sql); 
+	$rows = $resultado->num_rows;
+	if($rows > 0)
+	{
+		$row = $resultado->fetch_assoc();
+		$_SESSION['id_usuario'] = $row['idusuario'];
+		header("location: admin.php");
+	}else{
+		echo "<script>
+					alert('Usuario ó Password incorrecto');
+					windows.location = 'index.php';
+				</script>";
+	}
+}
 
 //Registrar usuario
 if(isset($_POST['registrar']))
@@ -110,14 +132,14 @@ if(isset($_POST['registrar']))
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control"  name="user"placeholder="Usuario" />
+															<input type="text" class="form-control"  name="user"placeholder="Usuario" required />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" name="pass"class="form-control" placeholder="Contraseña" />
+															<input type="password" name="pass"class="form-control" placeholder="Contraseña" required />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
