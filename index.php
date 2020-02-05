@@ -1,5 +1,45 @@
 <?php 
 require_once "config/conexion.php";
+
+//Registrar usuario
+if(isset($_POST['registrar']))
+{
+	$nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
+	$correo = mysqli_real_escape_string($conexion, $_POST['correo']);
+	$user = mysqli_real_escape_string($conexion, $_POST['user']);
+	$pass = mysqli_real_escape_string($conexion, $_POST['pass']);
+	$password_encriptada = sha1($pass);
+
+	$sqluser = "SELECT idusuario FROM usuarios WHERE usuario = '$user'";
+	$resultadouser = $conexion->query($sqluser);
+	$filas = $resultadouser->num_rows;
+	if($filas > 0)
+	{
+		echo "<script>
+					alert('El usuario ya existe');
+					windows.location = 'index.php';
+				</script>";
+	} else {
+		//insertar al usuario
+		$sqlusuario = "INSERT INTO usuarios(nombre, correo, usuario, password)
+							VALUES('$nombre', '$correo', '$user', '$password_encriptada')";
+		$resultadousuario = $conexion->query($sqlusuario);
+		if($resultadousuario)
+		{
+			echo "<script>
+					alert('Registro exitoso');
+					windows.location = 'index.php';
+				</script>";
+		}else{
+			echo "<script>
+					alert('Error al Registrarse');
+					windows.location = 'index.php';
+				</script>";
+		}
+	}
+
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
