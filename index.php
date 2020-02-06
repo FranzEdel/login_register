@@ -1,13 +1,22 @@
 <?php 
 require_once "config/conexion.php";
-//Login
-if(!empty($_POST))
+session_start();
+
+if(isset($_SESSION['id_usuario']))
 {
+	header("Location: admin.php");
+}
+//Login
+//if(!empty($_POST))
+if(isset($_POST['ingresar']))
+{
+	//var_dump($_POST);
+	//exit;
 	$user = mysqli_real_escape_string($conexion, $_POST['user']);
 	$pass = mysqli_real_escape_string($conexion, $_POST['pass']);
 	$password_encriptada = sha1($pass);
-
-	$sql = "SELECT idusuario FROM usuarios WHERE usuario = '$user' AND password = '$pass'";
+	
+	$sql = "SELECT idusuario FROM usuarios WHERE usuario = '$user' AND password = '$password_encriptada'";
 	$resultado = $conexion->query($sql); 
 	$rows = $resultado->num_rows;
 	if($rows > 0)
@@ -152,7 +161,7 @@ if(isset($_POST['registrar']))
 															<span class="lbl"> Recordarme</span>
 														</label>
 
-											<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+											<button type="submit" name="ingresar" class="width-35 pull-right btn btn-sm btn-primary">
 												<i class="ace-icon fa fa-key"></i>
 												<span class="bigger-110">Ingresar</span>
 											</button>

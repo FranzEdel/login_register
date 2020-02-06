@@ -1,3 +1,18 @@
+<?php 
+require "config/conexion.php";
+session_start();
+
+if(!isset($_SESSION['id_usuario']))
+{
+	header("Location: index.php");
+}
+
+$iduser = $_SESSION['id_usuario'];
+
+$sql = "SELECT idusuario, nombre FROM usuarios WHERE idusuario = '$iduser'";
+$resultado = $conexion->query($sql);
+$row = $resultado->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -117,7 +132,7 @@
 								<span class="user-info">
 									<small>Bienvenid@</small>
 									<!-- Mostrar Nombre del Usuario Logueado-->
-									Jairo Galeas		
+									<?php echo utf8_decode($row['nombre']); ?>		
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -136,7 +151,7 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="#">
+									<a href="salir.php">
 										<i class="ace-icon fa fa-power-off"></i>
 										Salir
 									</a>
