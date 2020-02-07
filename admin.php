@@ -1,5 +1,6 @@
 <?php 
-require "config/conexion.php";
+session_start();
+/* require "config/conexion.php";
 session_start();
 
 if(!isset($_SESSION['id_usuario']))
@@ -11,7 +12,7 @@ $iduser = $_SESSION['id_usuario'];
 
 $sql = "SELECT idusuario, nombre FROM usuarios WHERE idusuario = '$iduser'";
 $resultado = $conexion->query($sql);
-$row = $resultado->fetch_assoc();
+$row = $resultado->fetch_assoc(); */
 ?>
 <!DOCTYPE html>
 <html lang="en">

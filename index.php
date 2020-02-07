@@ -1,5 +1,5 @@
 <?php 
-require_once "config/conexion.php";
+/* require_once "config/conexion.php";
 session_start();
 
 if(isset($_SESSION['id_usuario']))
@@ -70,7 +70,7 @@ if(isset($_POST['registrar']))
 	}
 
 
-}
+} */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -137,18 +137,18 @@ if(isset($_POST['registrar']))
 
 											<div class="space-6"></div>
 
-											<form action="<?php $_SERVER["PHP_SELF"]; ?>" method="POST" >
+											<form>
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control"  name="user"placeholder="Usuario" required />
+															<input type="text" class="form-control"  id="usuario"placeholder="Usuario" required />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" name="pass"class="form-control" placeholder="Contraseña" required />
+															<input type="password" id="password"class="form-control" placeholder="Contraseña" required />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
@@ -161,7 +161,7 @@ if(isset($_POST['registrar']))
 															<span class="lbl"> Recordarme</span>
 														</label>
 
-											<button type="submit" name="ingresar" class="width-35 pull-right btn btn-sm btn-primary">
+											<button type="button" onclick="ValidarUsuario()" class="width-35 pull-right btn btn-sm btn-primary">
 												<i class="ace-icon fa fa-key"></i>
 												<span class="bigger-110">Ingresar</span>
 											</button>
@@ -176,6 +176,8 @@ if(isset($_POST['registrar']))
 											
 
 										</div><!-- /.widget-main -->
+
+										<div id="status_login"></div>
 
 										<div class="toolbar clearfix">
 											<div>
@@ -336,7 +338,7 @@ if(isset($_POST['registrar']))
 
 		<!--[if !IE]> -->
 		<script src="assets/js/jquery-2.1.4.min.js"></script>
-
+		<script src="assets/scripts/usuario.js"></script>
 		<!-- <![endif]-->
 
 		<!--[if IE]>
