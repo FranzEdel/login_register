@@ -1,5 +1,7 @@
 <?php 
 session_start();
+if(isset($_SESSION['usu']))
+{
 /* require "config/conexion.php";
 session_start();
 
@@ -133,7 +135,7 @@ $row = $resultado->fetch_assoc(); */
 								<span class="user-info">
 									<small>Bienvenid@</small>
 									<!-- Mostrar Nombre del Usuario Logueado-->
-									<?php echo utf8_decode($row['nombre']); ?>		
+									<?php echo $_SESSION['usu']['nombre']; ?>	
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -152,6 +154,9 @@ $row = $resultado->fetch_assoc(); */
 								<li class="divider"></li>
 
 								<li>
+									<form action="controllers/UsuarioController.php?opcion=cerrar_sesion" method="POST">
+										<button type="submit" style="background-color: transparent"><i class="ace-icon fa fa-power-off"></i> Salir</button>
+									</form>
 									<a href="salir.php">
 										<i class="ace-icon fa fa-power-off"></i>
 										Salir
@@ -589,3 +594,10 @@ $row = $resultado->fetch_assoc(); */
 
 	</body>
 </html>
+<?php 
+}
+else {
+	header("Location: index.php");
+}
+
+?>

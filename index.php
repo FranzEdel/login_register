@@ -1,4 +1,11 @@
 <?php 
+session_start();
+
+if(isset($_SESSION['usu']))
+{
+	header("Location: admin.php");
+}
+else {
 /* require_once "config/conexion.php";
 session_start();
 
@@ -389,3 +396,6 @@ if(isset($_POST['registrar']))
 		</script>
 	</body>
 </html>
+<?php 
+}
+?>
