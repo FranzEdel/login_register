@@ -6,6 +6,22 @@ $user = new Usuario();
 
 switch($_REQUEST['opcion'])
 {
+   case 'registrar_usuario':
+      if(isset($_POST['nombre'], $_POST['correo'], $_POST['usuario'], $_POST['password']) && !empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['usuario']) && !empty($_POST['password']))
+      {
+         if($user->RegistrarUsuario($_POST['nombre'], $_POST['correo'], $_POST['usuario'], $_POST['password']))
+         {
+            $response = 'success';
+         } else {
+            $response = 'notfound';
+         }
+      } else {
+         $response = 'required';
+      }
+
+      echo $response;
+   break;
+
    case 'validar_usuario':
       if(isset($_POST['usuario'], $_POST['password']) && !empty($_POST['usuario']) && !empty($_POST['password']))
       {

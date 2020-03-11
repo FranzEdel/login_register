@@ -40,6 +40,14 @@ class Usuario
       }
       return false;
    }
+
+   public function ListarUsuarios()
+   {
+      $query = "SELECT * FROM usuarios";
+      $result = $this->conexion->prepare($query);
+      return false;
+
+   }
 }
 
 ?>

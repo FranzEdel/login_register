@@ -86,52 +86,9 @@ $row = $resultado->fetch_assoc(); */
 
 				<div class="navbar-buttons navbar-header pull-right" role="navigation">
 					<ul class="nav ace-nav">
-						<li class="purple dropdown-modal">
-							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-								<i class="ace-icon fa fa-bell icon-animated-bell"></i>
-								<span class="badge badge-important">1</span>
-							</a>
-
-							<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-								<li class="dropdown-header">
-									<i class="ace-icon fa fa-exclamation-triangle"></i>
-									1 Curso Gratis
-								</li>
-
-								<li class="dropdown-footer">
-									<a href="https://www.udemy.com/curso-basico-de-programacion-en-php">
-										Registrarse en curso gratis
-										<i class="ace-icon fa fa-arrow-right"></i>
-									</a>
-								</li>
-							</ul>
-						</li>
-
-						<li class="green dropdown-modal">
-							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-								<i class="ace-icon fa fa-graduation-cap icon-animated-vertical"></i>
-								<span class="badge badge-success">8</span>
-							</a>
-
-							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-								<li class="dropdown-header">
-									<i class="ace-icon fa fa-graduation-cap"></i>
-									8 Cursos
-								</li>
-
-
-								<li class="dropdown-footer">
-									<a href="http:/www.jairogaleas.com/cursos">
-										Ver todos los cursos
-										<i class="ace-icon fa fa-arrow-right"></i>
-									</a>
-								</li>
-							</ul>
-						</li>
-
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="assets/images/avatars/user.jpg"  />
+								<img class="nav-user-photo" src="assets/images/avatars/avatar.png"  />
 								<span class="user-info">
 									<small>Bienvenid@</small>
 									<!-- Mostrar Nombre del Usuario Logueado-->

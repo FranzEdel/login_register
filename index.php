@@ -253,37 +253,37 @@ if(isset($_POST['registrar']))
 				</h4>
 	<div class="space-6"></div>
 		<p>Ingresa los datos solicitados acontinuacion: </p>
-		<form action="<?php $_SERVER["PHP_SELF"]; ?>" method="POST" >
+		<form>
 			<fieldset>
 			            <label class="block clearfix">
 					<span class="block input-icon input-icon-right">
-						<input type="text" class="form-control"  name="nombre" placeholder="Nombre Completo"  required />
+						<input type="text" class="form-control"  name="form_nombre" id="form_nombre" placeholder="Nombre Completo"  required />
 							<i class="ace-icon fa fa-users"></i>
 					</span>
 				</label>
 			
 				<label class="block clearfix">
 					<span class="block input-icon input-icon-right">
-				             	<input type="email" class="form-control" name="correo" placeholder="Email"  required />
+				             	<input type="email" class="form-control" name="form_correo" id="form_correo" placeholder="Email"  required />
 					                        <i class="ace-icon fa fa-envelope"></i>
 					</span>
 				</label>
 					<label class="block clearfix">
 						<span class="block input-icon input-icon-right">
-			                     		<input type="text" class="form-control" name="user" placeholder="Usuario"  required />
+			                     		<input type="text" class="form-control" name="form_user" id="form_user" placeholder="Usuario"  required />
                                        				<i class="ace-icon fa fa-user"></i>
   						</span>
 				</label>
 				<label class="block clearfix">
                      				<span class="block input-icon input-icon-right">
-		                      			<input type="password" class="form-control" name="pass" placeholder="Password"  required />
+		                      			<input type="password" class="form-control" name="form_pass" id="form_pass" placeholder="Password"  required />
 							<i class="ace-icon fa fa-lock"></i>
 					</span>
 				</label>
 
 				<label class="block clearfix">
 					<span class="block input-icon input-icon-right">
-						<input type="password" class="form-control" name="passr" placeholder="Repetir password" />
+						<input type="password" class="form-control" name="form_passr" id="form_passr" placeholder="Repetir password" />
 							<i class="ace-icon fa fa-retweet"></i>
 									</span>
 				</label>
@@ -302,11 +302,12 @@ if(isset($_POST['registrar']))
 							<span class="bigger-110">Reset</span>
 					</button>
 					
-					<button type="submit" name="registrar"   class="width-65 pull-right btn btn-sm btn-success">
+					<button type="submit" name="registrar" onclick="RegistrarUsuario()" class="width-65 pull-right btn btn-sm btn-success">
 						<span class="bigger-110">Registrar</span>
 							<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
 					</button>
-					 </div>
+				</div>
+				<div id="status_register"></div>
 			</fieldset>
 		</form>
 	</div>
